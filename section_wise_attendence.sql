@@ -1,0 +1,11 @@
+create table section_wise_attendence(Sec_Att_Id varchar2(20) primary key,
+					Attendence_Id varchar2(20) references attendence(Attendence_Id),
+					Class_Id varchar2(10) references class(Class_Id),
+					Student_No varchar2(20) references student(Student_No),
+					Day varchar2(20),----check(Day in('monday','tuesday','wednesday','thursday','friday','saterday','sunday')),
+					Present char(1) check(Present in('N','Y')),
+					Recorded_By varchar2(20) references staff(Staff_Id),
+					Created_By varchar2(20),
+					Creation_Date date,
+					Last_Updated_by varchar2(20),
+					Last_Updation_Date date);

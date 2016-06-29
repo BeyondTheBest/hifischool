@@ -1,0 +1,12 @@
+create table staff_attendence(Staff_Att_Id varchar2(20) primary key,
+				Staff_Id varchar2(20) references staff(Staff_Id),
+				Year number(4) check(Year between 2000 and 2100),
+				Month number(2) check(Month between 1 and 12),
+				Day number(2) check(Day between 1 and 31),
+				Present char(1) check(Present in('N','Y','L','M','P')),
+				If_Leave_Approved_By varchar2(20) references staff(Staff_Id),
+				Recorded_By varchar2(20) references staff(Staff_Id),
+				Created_By varchar2(20),
+				Creation_Date date,
+				Last_Updated_By varchar2(20),
+				Last_Updation_Date date);

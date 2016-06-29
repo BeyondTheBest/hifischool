@@ -1,0 +1,20 @@
+create or replace function func_Marks_Calc(Student_Id varchar2,Sub_Id varchar2)return varchar2
+is
+sub v_results%rowtype;
+p number;
+result varchar2(20);
+begin
+select * into sub
+from v_results
+where Student_No=Student_Id
+	and
+	Sub_Id=Subject_Id;
+p:=(sub.Subject_Marks_Secured/sub.Subject_Max_Marks)*100;
+if p>=35 then
+	result:='PASS';
+else
+	result:='FAIL';
+end if;
+dbms_output.put_line(result);
+return result;
+end;

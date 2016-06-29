@@ -1,0 +1,11 @@
+create table marks(Marks_Id varchar2(5) primary key,
+		Class_Id varchar2(10) references class(Class_Id),
+		Student_No varchar2(20) references student(Student_No),
+		Term_Id varchar2(20) references terms(Term_Id),
+		Subject_Id varchar2(20) references subjects(Subject_Id),
+		Subject_Marks_Secured number(3),
+		Answer_Sheet_Corrected_By varchar2(20) references teachers(Teacher_Id),
+		Created_By varchar2(20),
+		Creation_Date date,
+		Last_Updated_By varchar2(20),
+		Last_Updation_Date date);

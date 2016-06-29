@@ -1,0 +1,13 @@
+create table library_master(Library_Id varchar2(20) primary key,
+				Arranged_Year varchar(5),
+				Rack_No number(5),
+				Book_Id_If_exists varchar2(10),
+				Book_Name varchar2(20),
+				Book_Category varchar2(20),
+				Author varchar2(20),
+				Book_Version varchar2(20),
+				Useful_For_Section varchar2(20) references class(Class_Id),
+				Created_By varchar2(20),
+				Creation_Date date,
+				Last_Updated_by varchar2(20),
+				Last_Updation_Date date);

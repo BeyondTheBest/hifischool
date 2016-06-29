@@ -1,0 +1,374 @@
+----student table-----
+
+insert into student values('11d71a0405','Bandaram raju','Kistaiah','Aruna','15-oct-1992','7-sep-2011','Siddipet',1701,user,sysdate,user,sysdate);
+
+insert into student values('11d71a0417','RaviKumar Peddolla','Sailoo','Ramavva','13-nov-1993','10-sep-2011','Hyderabad',1803,user,sysdate,user,sysdate);
+
+insert into student values('11d71a0514','Thouta Sukesh Kumar','Indrasen','Rajalaxmi','6-nov-1993','8-aug-2011','Medak',1558,user,sysdate,user,sysdate);
+
+commit;
+
+---class table----
+
+insert into class values('HIFI_10th_A',1231,'10th_Class','Sec_A','Govardhan','Saibaba','48',101,2016,user,sysdate,user,sysdate);
+
+insert into class values('HIFI_10th_B',1232,'10th_Class','Sec_B','sudheer','Saibaba','50',102,2016,user,sysdate,user,sysdate);
+
+insert into class values('HIFI_9th_A',1233,'9th_Class','Sec_A','Ameena','Saibaba','45',201,2016,user,sysdate,user,sysdate);
+
+insert into class values('HIFI_9th_B',1234,'9th_Class','Sec_B','Sailaja','Saibaba','30',201,2016,user,sysdate,user,sysdate);
+
+---Terms table-----
+
+insert into terms values('Term_1','First_Term',90,'12-june-2016','12-aug-2016',user,sysdate,user,sysdate);
+
+insert into terms values('Term_2','Second_Term',90,'01-sep-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+insert into terms values('Term_3','Third_Term',90,'15-nov-2016','28-feb-2017',user,sysdate,user,sysdate);
+
+insert into terms values('Term_4','fourth_Term',90,'15-mar-2017','01-june-2017',user,sysdate,user,sysdate);
+
+---subjects table----
+
+insert into subjects values('Sub_01','Telugu',100,user,sysdate,user,sysdate);
+
+insert into subjects values('Sub_02','Hindi',100,user,sysdate,user,sysdate);
+
+insert into subjects values('Sub_03','English',100,user,sysdate,user,sysdate);
+
+insert into subjects values('Sub_04','Maths',100,user,sysdate,user,sysdate);
+
+insert into subjects values('Sub_05','Science',100,user,sysdate,user,sysdate);
+
+insert into subjects values('Sub_06','Social',100,user,sysdate,user,sysdate);
+
+
+-------Teachers table-----
+
+insert into teachers values('HIFI_Tech_1','Srinivas Reddy','03-AUG-1978',sysdate,'Male','Venkat Reddy','Padma Reddy','Laxmi','A','',NULL,'',NULL,'',15,'All','','','Chiranjeevi','29-may-2016','',NULL,'Siddipet','',9876543210,'Ramesh Reddy',9909912345,'H.P.S,Begumpet',600000,user,sysdate,user,sysdate);
+
+insert into teachers values('HIFI_Tech_2','Ashok Raj','05-sep-1965',sysdate,'Male','Laxma Reddy','Indraja','Himavathi','A','',NULL,'',NULL,'',25,'All','','','Chiranjeevi','29-may-2016','',NULL,'Siddipet','',9123456780,'Himavathi',9123450000,'D.P.s,Hyderabad',1200000,user,sysdate,user,sysdate);
+
+insert into teachers values('HIFI_Tech_3','Himavathi','15-jan-1970',sysdate,'Female','Ramesh','Latha','Ashok Raj','A','',NULL,'',NULL,'',20,'All','','','Chiranjeevi','29-may-2016','',NULL,'Warangal','',9989430867,'Ashoke Raj',9123456780,'D.P.s,Hyderabad',900000,user,sysdate,user,sysdate);
+
+insert into teachers values('HIFI_Tech_4','Srinivas Goud','05-May-1985',sysdate,'Male','Laxman Goud','Badramma','Mounika','A','',NULL,'',NULL,'',20,'All','','','Chiranjeevi','29-may-2016','',NULL,'Medak','',9908897008,'Rajugoud',9951833517,'Siddartha High School,Medak',500000,user,sysdate,user,sysdate);
+
+insert into teachers values('HIFI_Tech_5','Standly','15-mar-1982',sysdate,'Male','Joseff','Dayana','Anjali','B','',NULL,'',NULL,'',10,'English','','','Chiranjeevi','29-may-2016','',NULL,'Chennai','',9909909909,'Danial',9988776655,'St.soffe High School,Chennai',300000,user,sysdate,user,sysdate);
+
+insert into teachers values('HIFI_Tech_6','Anand Paul','31-dec-1975',sysdate,'Male','Ramesh Paul','kasthori','Sonarika','B','',NULL,'',NULL,'',8,'Hindi','','','Chiranjeevi','29-may-2016','',NULL,'Maharastra','',8500301843,'Ramesh Paul',8374203203,'',NULL,user,sysdate,user,sysdate);
+
+----marks table------
+
+insert into marks values('Marks_01','HIFI_10th_A','11d71a0405','Term_1','Sub_01',85,'HIFI_Tech_2',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_02','HIFI_10th_A','11d71a0405','Term_1','Sub_02',90,'HIFI_Tech_6',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_03','HIFI_10th_A','11d71a0405','Term_1','Sub_03',65,'HIFI_Tech_5',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_04','HIFI_10th_A','11d71a0405','Term_1','Sub_04',95,'HIFI_Tech_1',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_05','HIFI_10th_A','11d71a0405','Term_1','Sub_05',88,'HIFI_Tech_3',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_06','HIFI_10th_A','11d71a0405','Term_1','Sub_06',90,'HIFI_Tech_4',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_11','HIFI_10th_A','11d71a0417','Term_1','Sub_01',80,'HIFI_Tech_2',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_12','HIFI_10th_A','11d71a0417','Term_1','Sub_02',93,'HIFI_Tech_6',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_13','HIFI_10th_A','11d71a0417','Term_1','Sub_03',76,'HIFI_Tech_5',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_14','HIFI_10th_A','11d71a0417','Term_1','Sub_04',60,'HIFI_Tech_1',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_15','HIFI_10th_A','11d71a0417','Term_1','Sub_05',80,'HIFI_Tech_3',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_16','HIFI_10th_A','11d71a0417','Term_1','Sub_06',85,'HIFI_Tech_4',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_21','HIFI_10th_B','11d71a0514','Term_1','Sub_01',86,'HIFI_Tech_2',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_22','HIFI_10th_B','11d71a0514','Term_1','Sub_02',80,'HIFI_Tech_6',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_23','HIFI_10th_B','11d71a0514','Term_1','Sub_03',78,'HIFI_Tech_5',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_24','HIFI_10th_B','11d71a0514','Term_1','Sub_04',69,'HIFI_Tech_1',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_25','HIFI_10th_B','11d71a0514','Term_1','Sub_05',67,'HIFI_Tech_3',user,sysdate,user,sysdate);
+
+insert into marks values('Marks_26','HIFI_10th_B','11d71a0514','Term_1','Sub_06',78,'HIFI_Tech_4',user,sysdate,user,sysdate);
+
+-----Term_Result table-------
+
+insert into term_result values('TermResult_01','Term_1','11d71a0405','Pass','HIFI_Tech_2',user,sysdate,user,sysdate);
+
+insert into term_result values('TermResult_02','Term_1','11d71a0417','Pass','HIFI_Tech_2',user,sysdate,user,sysdate);
+
+insert into term_result values('TermResult_03','Term_1','11d71a0514','Pass','HIFI_Tech_1',user,sysdate,user,sysdate);
+
+-----Fee_Master table-------
+
+insert into fee_master values('HIFI_Fee_001','Tution Fee','Regular','12-june-2016','01-june-2017',0.1,NULL,NULL,NULL,NULL,NULL,NULL,user,sysdate,user,sysdate);
+
+
+insert into fee_master values('HIFI_Fee_002','Tution Fee','Regular','12-june-2016','01-june-2017',0.1,0.1,NULL,NULL,NULL,NULL,NULL,user,sysdate,user,sysdate);
+
+
+insert into fee_master values('HIFI_Fee_003','Tution Fee','Regular','12-june-2016','01-june-2017',0.1,NULL,0.1,NULL,NULL,NULL,NULL,user,sysdate,user,sysdate);
+
+---------Class_Wise_Fee Table-----
+
+insert into class_wise_fee values('Class_Fee_001','HIFI_10th_A','HIFI_Fee_001',200000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_003','HIFI_10th_A','HIFI_Fee_002',200000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_004','HIFI_10th_A','HIFI_Fee_003',200000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_002','HIFI_10th_B','HIFI_Fee_001',150000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_005','HIFI_10th_B','HIFI_Fee_002',150000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_006','HIFI_10th_B','HIFI_Fee_003',150000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_007','HIFI_9th_A','HIFI_Fee_001',200000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_008','HIFI_9th_A','HIFI_Fee_002',200000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_009','HIFI_9th_A','HIFI_Fee_003',200000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_010','HIFI_9th_B','HIFI_Fee_001',150000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_011','HIFI_9th_B','HIFI_Fee_002',150000,user,sysdate,user,sysdate);
+
+insert into class_wise_fee values('Class_Fee_012','HIFI_9th_B','HIFI_Fee_003',150000,user,sysdate,user,sysdate);
+
+------------Staff Table-------------------
+
+insert into staff values('HIFI_Staff_1','Sathyanarayana','01-jan-1965',sysdate,'Male','Venkat Reddy','Padma Reddy','Laxmi','A','',NULL,'',NULL,'',10,'All','','','Chiranjeevi','29-may-2016','',NULL,'Hyderabad','',9123491234,'Ramesh chandra',9989898989,'Krishanveni Talent School',500000,user,sysdate,user,sysdate);
+
+insert into staff values('HIFI_Staff_2','ChadraShekar','27-feb-1972',sysdate,'Male','Laxma Reddy','Indraja','Himavathi','A','',NULL,'',NULL,'',25,'All','','','Chiranjeevi','29-may-2016','',NULL,'Nijambad','',8121979858,'Sukesh KUmar',9533663236,'Geetha High School,Nijambad',300000,user,sysdate,user,sysdate);
+
+insert into staff values('HIFI_Staff_3','Archana','15-jan-1976',sysdate,'Female','Ramesh','Latha','Ashok Raj','A','',NULL,'',NULL,'',20,'All','','','Chiranjeevi','29-may-2016','',NULL,'Warangal','',9989430867,'Ashoke Raj',9123456780,'D.P.s,Hyderabad',300000,user,sysdate,user,sysdate);
+
+insert into staff values('HIFI_Staff_4','Srinivas Goud','05-May-1985',sysdate,'Male','Laxman Goud','Badramma','Mounika','A','',NULL,'',NULL,'',20,'All','','','Chiranjeevi','29-may-2016','',NULL,'Medak','',9908897008,'Rajugoud',9951833517,'Siddartha High School,Medak',500000,user,sysdate,user,sysdate);
+
+
+------------Term_Wise_Fee_Payments--------
+
+insert into term_wise_fee_payments values('HIFI_term_Fee_001','Term_1','HIFI_Fee_001','No','11d71a0405',200000,'01-june-2016',NULL,'CASH','RAJUGOUD','HIFI_Staff_4','HIFI_Fee_Receipt_001',user,sysdate,user,sysdate);
+
+insert into term_wise_fee_payments values('HIFI_term_Fee_002','Term_1','HIFI_Fee_001','No','11d71a0417',200000,'01-june-2016',NULL,'CASH','RAVIKUMAR','HIFI_Staff_4','HIFI_Fee_Receipt_002',user,sysdate,user,sysdate);
+
+insert into term_wise_fee_payments values('HIFI_term_Fee_003','Term_1','HIFI_Fee_001','No','11d71a0514',150000,'01-june-2016',NULL,'CASH','SUKESH AARYAN','HIFI_Staff_4','HIFI_Fee_Receipt_003',user,sysdate,user,sysdate);
+
+------------Sports_master table----------
+
+insert into sports_master values('HIFI_Sports_Cri_16','Cricket','yes','','Srinivas Reddy','Srinivas Goud','','',user,sysdate,user,sysdate);
+
+insert into sports_master values('HIFI_Sports_Vol_16','VollyBall','yes','','Srinivas Reddy','Srinivas Goud','','',user,sysdate,user,sysdate);
+
+insert into sports_master values('HIFI_Sports_car_16','Carroms','yes','','Srinivas Reddy','Srinivas Goud','','',user,sysdate,user,sysdate);
+
+insert into sports_master values('HIFI_Sports_Ches_16','Chess','yes','','Srinivas Reddy','Srinivas Goud','','',user,sysdate,user,sysdate);
+
+------Class_Wise_Sports---------
+
+insert into class_wise_sports values('HIFI_Class_Sport_001','HIFI_Sports_Cri_16','HIFI_10th_A','','','','',user,sysdate,user,sysdate);
+
+insert into class_wise_sports values('HIFI_Class_Sport_002','HIFI_Sports_Vol_16','HIFI_10th_A','','','','',user,sysdate,user,sysdate);
+
+insert into class_wise_sports values('HIFI_Class_Sport_003','HIFI_Sports_Ches_16','HIFI_10th_B','','','','',user,sysdate,user,sysdate);
+
+----------sports_participation-------
+
+insert into sports_participation values('Sport_part_111','HIFI_Sports_Cri_16','HIFI_Class_Sport_001','11d71a0405','5-june-2016','First Prize','20-june-2016','Pricipal','Winners in Cricket','Well Done Boys',user,sysdate,user,sysdate);
+
+insert into sports_participation values('Sport_part_112','HIFI_Sports_Vol_16','HIFI_Class_Sport_002','11d71a0417','5-june-2016','First Prize','20-june-2016','Pricipal','Winners in VollyBall','Well Done Boys',user,sysdate,user,sysdate);
+
+insert into sports_participation values('Sport_part_113','HIFI_Sports_Ches_16','HIFI_Class_Sport_003','11d71a0514','5-june-2016','First Prize','20-june-2016','Pricipal','Winner in Chess Game','Well Done Boy',user,sysdate,user,sysdate);
+
+-----------sports_Fee_Payments----------
+
+insert into sports_fee_payments values('HIFI_sports_fee_201','Term_1','HIFI_Sports_Cri_16',50000,'no','11d71a0405',50000,'01-june-2016',NULL,'CASH','RAJUGOUD','HIFI_Staff_4','HIFI_Fee_Receipt_004',user,sysdate,user,sysdate);
+
+insert into sports_fee_payments values('HIFI_sports_fee_202','Term_1','HIFI_Sports_Vol_16',50000,'no','11d71a0417',50000,'01-june-2016',NULL,'CASH','RAVI KUMAR','HIFI_Staff_4','HIFI_Fee_Receipt_005',user,sysdate,user,sysdate);
+
+insert into sports_fee_payments values('HIFI_sports_fee_203','Term_1','HIFI_Sports_Ches_16',50000,'no','11d71a0514',50000,'01-june-2016',NULL,'CASH','SUKES AARYAN','HIFI_Staff_4','HIFI_Fee_Receipt_006',user,sysdate,user,sysdate);
+
+----------transport table---------
+
+insert into transport values('HIFI_Route_1','mdk_1','HYD-MDK','june-2016','31-aug-2016','','',NULL,Vehicle_List('ts15ew7606','ap23ab4850','ap23ab7424'),150,'3Hr','Ravikumar','Medak','Hyderabad','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+---for calling ---Route_Vehicle_Number---> "select * from table(select Route_Vehicle_Number_List from transport);"
+
+insert into transport values('HIFI_Route_2','Nar_1','HYD-Narsapur','june-2016','31-aug-2016','','',NULL,Vehicle_List('TS15QW1234','AP18VR4321'),200,'4Hr','Ravikumar','Narsapur','Hyderabad','HIFI_Staff_2',user,sysdate,user,sysdate);
+
+insert into transport values('HIFI_Route_3','sdpt_1','HYD-Siddipet','june-2016','31-aug-2016','','',NULL,Vehicle_List('TS15BC5678','AP23KJ6543','TS23MN9999'),120,'3Hr','Ravikumar','Medak','Hyderabad','HIFI_Staff_3',user,sysdate,user,sysdate);
+
+---------transport_enrollments_roaster Table-----
+
+insert into transport_enrollments_roaster values('TR_Roaster_111','HIFI_Route_1','11d71a0405','1-june-2016','12-june-2016','31-aug-2016',user,sysdate,user,sysdate);
+
+insert into transport_enrollments_roaster values('TR_Roaster_112','HIFI_Route_1','11d71a0417','1-june-2016','12-june-2016','31-aug-2016',user,sysdate,user,sysdate);
+
+insert into transport_enrollments_roaster values('TR_Roaster_113','HIFI_Route_1','11d71a0514','1-june-2016','12-june-2016','31-aug-2016',user,sysdate,user,sysdate);
+
+----transport_fee_payments-----
+
+insert into transport_fee_payments values('HIFI_TR_Fee_0001','TR_Roaster_111','HIFI_Route_1',50000,'no','Term_1','11d71a0405',50000,'1-june-2016',NULL,'CASH','RAJUGOUD','HIFI_Staff_4','HIFI_TR_Receipt_001',user,sysdate,user,sysdate);
+
+insert into transport_fee_payments values('HIFI_TR_Fee_0002','TR_Roaster_112','HIFI_Route_1',50000,'no','Term_1','11d71a0417',50000,'1-june-2016',NULL,'CASH','RAVI KUMAR','HIFI_Staff_4','HIFI_TR_Receipt_002',user,sysdate,user,sysdate);
+
+insert into transport_fee_payments values('HIFI_TR_Fee_0003','TR_Roaster_113','HIFI_Route_1',50000,'no','Term_1','11d71a0514',50000,'1-june-2016',NULL,'CASH','SUKESH KUMAR','HIFI_Staff_4','HIFI_TR_Receipt_003',user,sysdate,user,sysdate);
+
+-----attendence table-----
+
+insert into attendence values('HIFI_Atta_2016_001',2016,6,user,sysdate,user,sysdate);
+
+insert into attendence values('HIFI_Atta_2016_002',2016,7,user,sysdate,user,sysdate);
+
+insert into attendence values('HIFI_Atta_2016_003',2016,8,user,sysdate,user,sysdate);
+
+-----Section_Wise_Attendence table-------
+
+insert into section_wise_attendence values('HIFI_Sec_Atta_0001','HIFI_Atta_2016_001','HIFI_10th_A','11d71a0405','12-june-2016','Y','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into section_wise_attendence values('HIFI_Sec_Atta_0002','HIFI_Atta_2016_001','HIFI_10th_A','11d71a0417','12-june-2016','Y','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into section_wise_attendence values('HIFI_Sec_Atta_0003','HIFI_Atta_2016_001','HIFI_10th_A','11d71a0514','12-june-2016','Y','HIFI_Staff_2',user,sysdate,user,sysdate);
+
+----teacher_to_class table------
+
+insert into teacher_to_class values('HIFI_Teach_Class_001','HIFI_Tech_1','HIFI_10th_A',user,sysdate,'2016','12-june-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+insert into teacher_to_class values('HIFI_Teach_Class_002','HIFI_Tech_2','HIFI_10th_B',user,sysdate,'2016','12-june-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+insert into teacher_to_class values('HIFI_Teach_Class_003','HIFI_Tech_3','HIFI_9th_A',user,sysdate,'2016','12-june-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+insert into teacher_to_class values('HIFI_Teach_Class_004','HIFI_Tech_4','HIFI_9th_B',user,sysdate,'2016','12-june-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+----teacher_attendence table-----
+
+insert into teacher_attendence values('HIFI_Teach_Atta_0001','HIFI_Tech_1',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into teacher_attendence values('HIFI_Teach_Atta_0002','HIFI_Tech_2',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into teacher_attendence values('HIFI_Teach_Atta_0003','HIFI_Tech_3',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into teacher_attendence values('HIFI_Teach_Atta_0004','HIFI_Tech_4',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+----teacher_salary Table------
+
+
+execute Proc_insertTeacher_Salary('HIFI_Tech_1',800000,2016,'June','32060208194','Cheque','No Comments');
+
+execute Proc_insertTeacher_Salary('HIFI_Tech_2',500000,2016,'June','32060202134','Cheque','No Comments');
+
+execute Proc_insertTeacher_Salary('HIFI_Tech_3',1500000,2016,'June','32060205194','Cheque','No Comments');
+
+----------staff_attendence------
+
+insert into staff_attendence values('HIFI_Staff_Atta_0001','HIFI_Staff_1',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into staff_attendence values('HIFI_Staff_Atta_0002','HIFI_Staff_2',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into staff_attendence values('HIFI_Staff_Atta_0003','HIFI_Staff_3',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+insert into staff_attendence values('HIFI_Staff_Atta_0004','HIFI_Staff_4',2016,6,12,'Y','','HIFI_Staff_1',user,sysdate,user,sysdate);
+
+-------staff_salary table-------
+
+execute Proc_insertStaff_Salary('HIFI_Staff_1',300000,2016,'June','32060201234','Cheque','No Comments');
+
+execute Proc_insertStaff_Salary('HIFI_Staff_2',500000,2016,'June','32060201123','Cheque','No Comments');
+
+execute Proc_insertStaff_Salary('HIFI_Staff_3',250000,2016,'June','32060201123','Cheque','No Comments');
+
+execute Proc_insertStaff_Salary('HIFI_Staff_4',1000000,2016,'June','32060204321','Cheque','No Comments');
+
+--------extra_Curr_Act_Master----
+
+insert into extra_curr_act_master values('Extra_Curr_Act_0001','Dancing','Yes','','','','','','',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_master values('Extra_Curr_Act_0002','Singing','Yes','','','','','','',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_master values('Extra_Curr_Act_0003','Drawing','Yes','','','','','','',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_master values('Extra_Curr_Act_0004','Acting','Yes','','','','','','',user,sysdate,user,sysdate);
+
+------extra_curr_act_participation table----
+
+insert into extra_curr_act_participation values('HIFI_ECAP_0001','Extra_Curr_Act_0001','11d71a0405','15-june-2016','First Prize','15-aug-2016','Principal','Best Performance','Wounderfull effforts',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_participation values('HIFI_ECAP_0002','Extra_Curr_Act_0002','11d71a0417','15-june-2016','First Prize','15-aug-2016','Principal','Best Performance','Wounderfull effforts',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_participation values('HIFI_ECAP_0003','Extra_Curr_Act_0003','11d71a0514','15-june-2016','First Prize','15-aug-2016','Principal','Best Performance','Wounderfull effforts',user,sysdate,user,sysdate);
+
+------Extra_curr_Act_Payments table---
+
+insert into extra_curr_act_payments values('HIFI_ECAFP_0001','HIFI_ECAP_0001','Extra_Curr_Act_0001',20000,'no','11d71a0405',20000,'01-june-2016',NULL,'CASH','RajuGoud','HIFI_Staff_4','ECAFP_Receipt_001',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_payments values('HIFI_ECAFP_0002','HIFI_ECAP_0002','Extra_Curr_Act_0002',20000,'no','11d71a0417',20000,'01-june-2016',NULL,'CASH','Ravi Kumar','HIFI_Staff_4','ECAFP_Receipt_002',user,sysdate,user,sysdate);
+
+insert into extra_curr_act_payments values('HIFI_ECAFP_0003','HIFI_ECAP_0003','Extra_Curr_Act_0003',20000,'no','11d71a0514',20000,'01-june-2016',NULL,'CASH','Sukesh Kumar','HIFI_Staff_4','ECAFP_Receipt_003',user,sysdate,user,sysdate);
+
+--------library_master table----------
+
+insert into library_master values('HIFI_Lib_2016_0001','2016','science_1','','Chemistry','Science','RAJUGOUD','2nd Edition','',user,sysdate,user,sysdate);
+
+insert into library_master values('HIFI_Lib_2016_0002','2016','science_2','','Chemistry','Science','RAVI KUMAR','2nd Edition','',user,sysdate,user,sysdate);
+
+insert into library_master values('HIFI_Lib_2016_0003','2016','Maths_1','','Mathmetics','Mathematics','RAJUGOUD','2nd Edition','',user,sysdate,user,sysdate);
+
+insert into library_master values('HIFI_Lib_2016_0004','2016','Maths_1','','Mathematics','Mathematics','SUKESH KUMAR','2nd Edition','',user,sysdate,user,sysdate);
+
+--------library_in_out_details-------
+
+insert into library_in_out_details values('HIFI_Lib_Details_001','HIFI_Lib_2016_0001','11d71a0405','Archana','RajuGoud','20-june-2016','','HIFI_Staff_3',user,sysdate,user,sysdate);
+
+insert into library_in_out_details values('HIFI_Lib_Details_002','HIFI_Lib_2016_0003','11d71a0405','Archana','RajuGoud','20-june-2016','','HIFI_Staff_3',user,sysdate,user,sysdate);
+
+insert into library_in_out_details values('HIFI_Lib_Details_003','HIFI_Lib_2016_0002','11d71a0417','Archana','RaviKumar','20-june-2016','','HIFI_Staff_3',user,sysdate,user,sysdate);
+
+------library_payments table-------
+
+insert into library_payments values('Lib_Fee_0001','HIFI_Lib_2016_0001','HIFI_Lib_Details_001',5000,'no','11d71a0405',5000,'01-june-2016',NULL,'CASH','RajuGoud','HIFI_Staff_4','HIFI_Lib_Receipt_001',user,sysdate,user,sysdate);
+
+insert into library_payments values('Lib_Fee_0002','HIFI_Lib_2016_0001','HIFI_Lib_Details_002',5000,'no','11d71a0417',5000,'01-june-2016',NULL,'CASH','Ravi Kumar','HIFI_Staff_4','HIFI_Lib_Receipt_002',user,sysdate,user,sysdate);
+
+insert into library_payments values('Lib_Fee_0003','HIFI_Lib_2016_0002','HIFI_Lib_Details_002',5000,'no','11d71a0405',5000,'01-june-2016',NULL,'CASH','RajuGoud','HIFI_Staff_4','HIFI_Lib_Receipt_003',user,sysdate,user,sysdate);
+
+------Year_wise_book_master-------
+
+insert into year_wise_book_master values('chem_01','Chemistry_10th',2016,6,12,'RajuGoud','','','','Archana','01-june-2016','','HIFI_Lib_2016_0001',200,50,user,sysdate,user,sysdate);
+
+insert into year_wise_book_master values('chem_02','Chemistry_10th',2016,6,12,'RajuGoud','','','','Archana','01-june-2016','','HIFI_Lib_2016_0002',200,50,user,sysdate,user,sysdate);
+
+insert into year_wise_book_master values('Math_01','Mathmetics_10th',2016,6,12,'RajuGoud','','','','Archana','01-june-2016','','HIFI_Lib_2016_0003',200,50,user,sysdate,user,sysdate);
+
+insert into year_wise_book_master values('Maths_02','Mathmetics_10th',2016,6,12,'RajuGoud','','','','Archana','01-june-2016','','HIFI_Lib_2016_0004',200,50,user,sysdate,user,sysdate);
+
+-----section_wise_books table----
+
+insert into section_wise_books values('Sec_Book_0001','',2016,'HIFI_10th_A','Chiranjeevi','05-june-2016',100,20000,user,sysdate,user,sysdate);
+
+insert into section_wise_books values('Sec_Book_0002','',2016,'HIFI_10th_B','Chiranjeevi','05-june-2016',100,20000,user,sysdate,user,sysdate);
+
+insert into section_wise_books values('Sec_Book_0003','',2016,'HIFI_9th_A','Chiranjeevi','05-june-2016',100,20000,user,sysdate,user,sysdate);
+
+insert into section_wise_books values('Sec_Book_0004','',2016,'HIFI_9th_B','Chiranjeevi','05-june-2016',100,20000,user,sysdate,user,sysdate);
+
+--------Book_Issue_To_Student table---------
+
+insert into book_issued_to_student values('Book_To_Student_0001','11d71a0405','Sec_Book_0001','HIFI_Lib_Details_001','HIFI_Lib_2016_0001','HIFI_Staff_3','12-june-2016',user,sysdate,user,sysdate);
+
+insert into book_issued_to_student values('Book_To_Student_0002','11d71a0417','Sec_Book_0002','HIFI_Lib_Details_001','HIFI_Lib_2016_0001','HIFI_Staff_3','12-june-2016',user,sysdate,user,sysdate);
+
+insert into book_issued_to_student values('Book_To_Student_0003','11d71a0405','Sec_Book_0001','HIFI_Lib_Details_001','HIFI_Lib_2016_0002','HIFI_Staff_3','12-june-2016',user,sysdate,user,sysdate);
+
+insert into book_issued_to_student values('Book_To_Student_0004','11d71a0514','Sec_Book_0002','HIFI_Lib_Details_001','HIFI_Lib_2016_0001','HIFI_Staff_3','12-june-2016',user,sysdate,user,sysdate);
+
+--------Book_Payments Table----------
+
+insert into books_payments values('Book_Payment_0001','Book_To_Student_0001','Term_1','chem_01',50000,'no','11d71a0405',50000,'01-june-2016',NULL,'CASH','RajuGoud','HIFI_Staff_1','HIFI_Book_Fee_001',user,sysdate,user,sysdate);
+
+insert into books_payments values('Book_Payment_0002','Book_To_Student_0002','Term_1','chem_01',50000,'no','11d71a0417',50000,'01-june-2016',NULL,'CASH','RaviKumar','HIFI_Staff_1','HIFI_Book_Fee_002',user,sysdate,user,sysdate);
+
+insert into books_payments values('Book_Payment_0003','Book_To_Student_0003','Term_1','Math_01',50000,'no','11d71a0405',50000,'01-june-2016',NULL,'CASH','RajuGoud','HIFI_Staff_1','HIFI_Book_Fee_003',user,sysdate,user,sysdate);

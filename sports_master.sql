@@ -1,0 +1,12 @@
+create table sports_Master(Sports_Id varchar2(10) primary key,
+				Sports_Description varchar2(20),
+				Kits_Available varchar2(5) check(Kits_Available in('yes','no')),
+				Kits_Used varchar(20),
+				Kits_Refilled_By varchar2(20),
+				Kits_Checked_By varchar2(20),
+				If_Donated_By varchar2(20),
+				If_Donated_Date date,
+				Created_By varchar2(20),
+				Creation_Date date,
+				Last_Updated_By varchar(20),
+				Last_Updation_Date date);

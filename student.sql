@@ -1,0 +1,12 @@
+create table students(Student_no varchar2(10) primary key,
+		Student_Name varchar2(20),
+		Father_Name varchar2(20),
+		Mother_Name varchar2(20),
+		DOB date,
+		DOJ date,
+		Address varchar2(30),
+		Admission_No number(5),
+		Created_By varchar2(20),
+		Creation_Date date,
+		Last_Updated_by varchar2(20),
+		Last_Updation_Date date);

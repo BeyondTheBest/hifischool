@@ -1,0 +1,12 @@
+create table library_in_out_details(LIOD_Id varchar2(20) primary key,
+					Library_Id varchar(20) references library_master(Library_Id),
+					Book_Issued_To_Student varchar2(20) references student(Student_No),
+					Book_Issued_By varchar2(20),
+					Book_Issud_To varchar2(20),
+					Book_Return_Due_Date date,
+					Actual_Book_Returned_Date date,
+					Book_Collected_By varchar2(20) references staff(Staff_Id),
+					Created_By varchar2(20),
+					Creation_Date date,
+					Last_Updated_by varchar2(20),
+					Last_Updation_Date date);

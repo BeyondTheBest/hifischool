@@ -1,0 +1,11 @@
+create table class_wise_sport(CWS_Id varchar2(20) primary key,
+				Sports_Id varchar2(20) references sports_Master(Sports_Id),
+				Class_Id varchar2(20) references class(Class_Id),
+				Allocation_To_Section_By varchar2(20),
+				Allocation_To_Section_Date date,
+				Change_Notes varchar2(30),
+				Change_Date date,
+				Created_By varchar2(20),
+				Creation_Date date,
+				Last_Updated_by varchar2(20),
+				Last_Updation_Date date);

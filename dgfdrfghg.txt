@@ -1,0 +1,8 @@
+declare
+Student_Id VARCHAR2(20);
+result v_section_attendence%rowtype;
+begin
+Student_Id:='&Student_No';
+proc_getClassWise_Attendence(Student_Id,result);
+end;
+/
