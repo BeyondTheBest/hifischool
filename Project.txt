@@ -1,0 +1,241 @@
+---------HIFI School Project-------
+
+create table student(Student_no varchar2(10) constraints pk_student primary key,
+		Student_Name varchar2(50),
+		Father_Name varchar2(50),
+		Mother_Name varchar2(50),
+		DOB date,
+		DOJ date,
+		Address varchar2(150),
+		Admission_No number(10),
+		Created_By varchar2(50),
+		Creation_Date date,
+		Last_Updated_by varchar2(50),
+		Last_Updation_Date date);
+
+create sequence Seq_Student_No
+start with 001
+increment by 1
+minvalue 001;
+
+create sequence seq_Admission_No
+start with 1000
+increment by 1;
+
+create or replace procedure in_Student_Admission(Student_Name varchar2,Father_Name varchar2,Mother_Name varchar2,DOB date,Address varchar2)
+is
+begin
+insert into student values(to_char(sysdate,'YY')||'HIFI'||Seq_Student_No.nextval,Student_Name,Father_Name,Mother_Name,DOB,sysdate,Address,Seq_Admission_No.nextval,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+execute in_Student_Admission('Bandaram Raju','Kistaiah','Aruna Devi','15-oct-1992','Siddipet');
+
+execute in_Student_Admission('Peddolla Ravi Kumar','Sailoo','Ramavva','13-nov-1993','Hyderabad');
+
+execute in_Student_Admission('Thouta Sukesh Kumar','Indrasen','Raja Laxmi','06-nov-1993','Medak');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+create table class(Class_Id varchar2(50) constraints pk_Class primary key,
+		   Class_No number(10),
+		   class_Name varchar2(50),
+		   Section_Name varchar2(50),
+		   Section_Teacher varchar2(50),
+		   Section_Incharge varchar2(50),
+		   Section_Strength number(10),
+		   Room_No number(15),
+		   Year number(5),
+		   Created_By varchar2(50),
+		   Creation_Date date,
+		   Last_Updated_By varchar2(50),
+		   Last_Updation_Date date);
+create sequence seq_Class_Id
+start with 001
+increment by 1
+minvalue 001;
+
+create sequence seq_Class_No
+start with 100
+increment by 1;
+
+--*class_Name should be like "10th Class","9th Class","8th Class"...etc.
+
+create or replace procedure in_Class_Details(Class_Name varchar2,section_Name varchar2,Section_Teacher varchar2,Section_Incharge varchar2,Section_Strength number,Room_No number,Year number)
+is
+begin
+if Class_Name='10th Class' then
+insert into class values(substr(Class_Name,1,4)||'_'||'HIFI'||'_'||Seq_Class_Id.nextval,seq_Class_No.nextval,Class_Name,Section_Name,Section_Teacher,Section_Incharge,Section_Strength,Room_No,Year,user,sysdate,user,sysdate);
+else
+insert into class values(substr(Class_Name,1,3)||'_'||'HIFI'||'_'||Seq_Class_Id.nextval,seq_Class_No.nextval,Class_Name,Section_Name,Section_Teacher,Section_Incharge,Section_Strength,Room_No,Year,user,sysdate,user,sysdate);
+end if;
+commit;
+end;
+/
+
+execute in_class_Details('10th Class','Sec-A','Ameena','SaiBaba',50,101,2016);
+
+execute in_class_Details('10th Class','Sec-B','Sudheer','SaiBaba',30,102,2016);
+
+execute in_class_Details('9th Class','Sec-A','Shilaja','SaiBaba',50,103,2016);
+
+execute in_class_Details('9th Class','Sec-B','Shravan','SaiBaba',30,104,2016);
+
+execute in_class_Details('8th Class','Sec-A','Govardhan','Chandra Shekar',50,105,2016);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+     create table terms(Term_Id varchar2(20) constraints pk_terms primary key,
+			Term_Name varchar2(30),
+			Term_Duration number(10),
+			Term_Start_Date date,
+			Term_End_date date,
+			Created_By varchar2(50),
+			Creation_Date date,
+			Last_Updated_By varchar2(50),
+			Last_Updation_Date date);
+
+create sequence seq_term_Id
+start with 1
+increment by 1;
+
+insert into terms values('Term_'||seq_term_Id.nextval,'First_Term',90,'12-june-2016','12-aug-2016',user,sysdate,user,sysdate);
+
+insert into terms values('Term_'||seq_term_Id.nextval,'Second_Term',90,'01-sep-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+insert into terms values('Term_'||seq_term_Id.nextval,'Third_Term',90,'15-nov-2016','28-feb-2017',user,sysdate,user,sysdate);
+
+insert into terms values('Term_'||seq_term_Id.nextval,'fourth_Term',90,'15-mar-2017','01-june-2017',user,sysdate,user,sysdate);
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+create table subjects(Subject_Id varchar2(20) constraints pk_subject primary key,
+			Subject_Name varchar(50) not null,
+			Subject_Max_Marks number(10) not null,
+			Created_By varchar2(50),
+			Creation_Date date,
+			Last_Updated_By varchar2(50),
+			Last_Updation_Date date);
+
+create sequence seq_Subject_Id
+start with 01
+increment by 1;
+
+create or replace procedure in_Subjects_Details_Proc(Subject_Name varchar2,max_marks number)
+is
+begin
+insert into subjects values(substr(subject_Name,1,3)||'_'||seq_subject_Id.nextval,Subject_Name,max_marks,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+execute in_Subjects_Details_Proc('Telugu',100);
+
+execute in_Subjects_Details_Proc('Hindi',100);
+
+execute in_Subjects_Details_Proc('English',100);
+
+execute in_Subjects_Details_Proc('Mathmetics',100);
+
+execute in_Subjects_Details_Proc('Science',100);
+
+execute in_Subjects_Details_Proc('Social',100);
+----------------------------------------------------------------------------------------------------------------------------------------
+create table teachers(Teacher_Id varchar2(20) constraints pk_Teacher primary key,
+			Teacher_Name varchar2(20) not null,
+			DOB date,
+			DOJ date,
+			Gender char(6) check(Gender in('M','F','m','f','male','female','MALE','FEMALE','Female','Male')),
+			Father_Name varchar2(50),
+			Mother_Name varchar2(50),
+			Spouse_Name varchar2(50),
+			Grade varchar2(20),
+			Insurance_Name varchar2(50),
+			Insurance_Premium number(11,2),
+			Insurance_Valid_Till date,
+			Insured_amount number(11,2),
+			Insurance_Number varchar2(40),
+			Total_Experience number(5),
+			Subject_Matter_Expert varchar2(30),
+			Value_Additions varchar2(50),
+			If_Refferenced_By varchar2(50),
+			Interviewed_By varchar2(50),
+			Interviewed_Date date,
+			PAN_Card_Number varchar2(50),
+			Bank_Account_Number number(30),
+			Address varchar2(80),
+			Email_Id varchar2(50),
+			Mobile number(10) check(length(Mobile)=10) not null,--no need to add country code
+			Emergency_Contact varchar2(50),
+			Emergency_Contact_Mobile number(10) check(length(Emergency_Contact_Mobile)=10) not null,
+			Previous_Organisation varchar2(50),
+			Previous_Org_Annual_Income number(11,2),
+			Created_By varchar2(50),
+			Creation_Date date,
+			Last_Updated_By varchar2(50),
+			Last_Updation_Date date);
+
+create sequence seq_teacher_Id
+start with 100
+increment by 1;
+
+create or replace procedure in_Teacher_Details_Proc(Teacher_Name varchar2,
+DOB date,
+DOJ date,
+Gender char,
+Father_Name varchar2,
+Mother_Name varchar2,
+Spouse_Name varchar2,
+Grade varchar2,
+Insurance_Name varchar2,
+Insurance_Premium number,
+Insurance_Valid_Till date,
+Insurance_Amount number,
+Insurance_Number varchar2,
+Total_Experience number,
+Subject_Matter_Expert varchar2,
+Value_Additions varchar2,
+If_Refferenced_By varchar2,
+Interviewed_By varchar2,
+Interviewed_Date date,
+PAN_Card_Number varchar2,
+Bank_Account_Number number,
+Address varchar2,
+EMail_Id varchar2,
+Mobile number,
+Emer_Contact varchar2,
+Emer_Contact_Mobile number,
+Previous_Org varchar2,
+Previous_Org_Income number)
+is
+begin
+insert into teachers values('HIFI_Teacher'||seq_Teacher_Id.nextval,Teacher_Name,DOB,DOJ,Gender,Father_Name,Mother_Name,Spouse_Name,Grade,Insurance_Name,Insurance_Premium,Insurance_Valid_Till,Insurance_Amount,Insurance_Number,Total_Experience,Subject_Matter_Expert,Value_Additions,If_Refferenced_By,Interviewed_By,Interviewed_Date,PAN_Card_Number,Bank_Account_Number,Address,EMail_Id,Mobile,Emer_Contact,Emer_Contact_Mobile,Previous_Org,Previous_Org_Income,user,sysdate,user,sysdate);
+/*--if (select count(1) from teachers t
+where exists(select * from teachers
+		where teacher_Name=t.teacher_Name
+                    and
+                    DOB=t.DOB
+                    and
+                    Mobile=t.Mobile))=0 then */
+commit;
+/*--else
+rollback; */
+end;
+/
+
+execute in_Teacher_Details_Proc('SaiBaba','01-jan-1985','29-may-2016','Male','Vishnu','Lakshmi','Padma','','',NULL,'',NULL,'',10,'Mathmetics','','','Chiranjeevi','25-may-2016','',32060208194,'Vizag','',9988776655,'Sathish',9900889911,'HPS,Begumpet',500000);
+
+execute in_Teacher_Details_Proc('Srinivas','05-May-1982','2-june-2016','Male','Laxman','Badramma','Mounika','','',NULL,'',NULL,'',18,'Social','','','Chiranjeevi','25-may-2016','',32060221194,'Medak','',9908897008,'SandeepGoud',8500205507,'DPS,Hyderabad',900000);
+
+execute in_Teacher_Details_Proc('Ravinder','01-june-1978','25-june-2016','Male','PochaGoud','KasturiBai','Jalaja','','',NULL,'',NULL,'',22,'Science','','','Chiranjeevi','25-may-2016','',32081208194,'Toopran','',9912345678,'venkatnarsaiah',9900882211,'Goutham Model School',1000000);
+
+execute in_Teacher_Details_Proc('Sandeep','25-sep-1990','6-may-2016','Male','Kistaiah','Aruna','','','',NULL,'',NULL,'',5,'Telugu','','','Chiranjeevi','25-may-2016','',32078908194,'Siddipet','',8500301843,'Kistaiah',9989430867,'Sri Vani High School',320000);
+
+execute in_Teacher_Details_Proc('Hareesh','07-oct-1990','2-june-2016','Male','LaxmanGoud','Padma',' ','','',NULL,'',NULL,'',Null,'English','','','Chiranjeevi','25-may-2016','',32060331194,'Hyderabad','',9908898899,'RajeshGoud',8500204567,'',NULL);
+
+execute in_Teacher_Details_Proc('Kistaiah','12-may-1975','25-june-2016','Male','Venkataiah','Narsamma','Aruna Devi','','',NULL,'',NULL,'',15,'Hindi','','','Chiranjeevi','25-may-2016','',32081298194,'warangal','',9989430867,'raju',9951833517,'ZPHS Ankshapur',1000000);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

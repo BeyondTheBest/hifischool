@@ -1,0 +1,35 @@
+create table student(Student_no varchar2(10) constraints pk_student primary key,
+		Student_Name varchar2(50),
+		Father_Name varchar2(50),
+		Mother_Name varchar2(50),
+		DOB date,
+		DOJ date,
+		Address varchar2(150),
+		Admission_No number(10),
+		Created_By varchar2(50),
+		Creation_Date date,
+		Last_Updated_by varchar2(50),
+		Last_Updation_Date date);
+
+create sequence Seq_Student_No
+start with 001
+increment by 1
+minvalue 001;
+
+create sequence seq_Admission_No
+start with 1000
+increment by 1;
+
+create or replace procedure in_Student_Admission(Student_Name varchar2,Father_Name varchar2,Mother_Name varchar2,DOB date,Address varchar2)
+is
+begin
+insert into student values(to_char(sysdate,'YY')||'HIFI'||Seq_Student_No.nextval,Student_Name,Father_Name,Mother_Name,DOB,sysdate,Address,Seq_Admission_No.nextval,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+execute in_Student_Admission('Bandaram Raju','Kistaiah','Aruna Devi','15-oct-1992','Siddipet');
+
+execute in_Student_Admission('Peddolla Ravi Kumar','Sailoo','Ramavva','13-nov-1993','Hyderabad');
+
+execute in_Student_Admission('Thouta Sukesh Kumar','Indrasen','Raja Laxmi','06-nov-1993','Medak');
