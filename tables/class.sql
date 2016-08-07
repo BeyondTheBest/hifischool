@@ -1,0 +1,13 @@
+create table class(Class_Id varchar2(50) constraints pk_Class primary key,
+		   Class_No number(10),
+		   class_Name varchar2(50),
+		   Section_Name varchar2(50),
+		   Section_Teacher varchar2(50),
+		   Section_Incharge varchar2(50),
+		   Section_Strength number(10),
+		   Room_No number(15),
+		   Year number(5),
+		   Created_By varchar2(50),
+		   Creation_Date date,
+		   Last_Updated_By varchar2(50),
+		   Last_Updation_Date date);
