@@ -1,0 +1,4 @@
+declare
+type student_details is record(Student_No student.Student_No%rowtype,Student_Name student.Student_Name%rowtype,Father_Name student.Father_Name%rowtype,Mother_Name student.Mother_Name%rowtype,DOB student.DOB%rowtype,DOJ student.DOJ%rowtype,Address student.Address%rowtype,Admission_No student.Admission_No%rowtype,created_by student.created_by%rowtype,created_date student.created_date%rowtype,last_updated_by student.last_updated_by%rowtype,last_updated_date student.last_updated_date%rowtype);
+details student_details;
+begin

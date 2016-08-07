@@ -1,0 +1,38 @@
+create or replace procedure getStudentDetails(Student_Id in varchar2,details out Student%rowtype)
+as
+begin
+if Student_Id IS NOT NULL then
+	select * into details from student where Student_No=Student_Id;
+else
+	select * into details from student;
+end if;
+end;
+/
+
+
+/* --execution process----
+declare
+result student%rowtype;
+Student_Id varchar2(20):='&Student_No';
+begin
+getStudentDetails(Student_Id,result);
+end;
+/
+Enter value for student_no: 16HIFI1
+old   3: Student_Id varchar2(20):='&Student_No';
+new   3: Student_Id varchar2(20):='16HIFI1';
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for student_no:
+old   3: Student_Id varchar2(20):='&Student_No';
+new   3: Student_Id varchar2(20):='';
+declare
+*
+ERROR at line 1:
+ORA-01422: exact fetch returns more than requested number of rows
+ORA-06512: at "RAJUGOUD.GETSTUDENTDETAILS", line 7
+ORA-06512: at line 5
+
+*/
