@@ -1,0 +1,141 @@
+
+--************************************************************************************************
+ create or replace procedure StudentDetails(Student_Id varchar2,results out student%rowtype)
+    is
+    details sys_refcursor;
+    begin
+    if Student_Id IS NULL then
+       open details for select * from student;
+       loop
+		fetch details into results;
+		exit when details%notfound;
+	end loop;
+   else
+      open details for select * from student where student_No=Student_Id;
+      fetch details into results;
+   end if;
+   end StudentDetails;
+  /
+
+Procedure created.
+
+ create or replace procedure getStudentDetails(Student_Id varchar2)
+    is
+    results student%rowtype;
+    begin
+    StudentDetails(Student_Id,results);
+    end;
+    /
+
+Procedure created.
+
+SQL> exec getStudentDetails('16HIFI1');
+
+PL/SQL procedure successfully completed.
+
+SQL> exec getStudentDetails('');
+
+PL/SQL procedure successfully completed.
+--**************************************************************************************************
+/*
+create or replace procedure getStudentDetails(Student_Id IN varchar2)
+is
+cursor details sys_refcursor is select * from student where Student_No=Student_Id;
+TYPE student_details is record(Student_No student.Student_No%rowtype,Student_Name student.Student_Name%rowtype,Father_Name student.Father_Name%rowtype,Mother_Name student.Mother_Name%rowtype,DOB student.DOB%rowtype,DOJ student.DOJ%rowtype,Address student.Address%rowtype,Admission_No student.Admission_No%rowtype,created_by student.created_by%rowtype,created_date student.created_date%rowtype,last_updated_by student.last_updated_by%rowtype,last_updated_date student.last_updated_date%rowtype);
+CREATE or replace procedure getStudentDetails(Student_Id varchar2,details out student%rowtype)
+is
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++CURSOR Student_Details is select * from student where Student_No=Student_Id;
+begin
+open Student_Details;
+fetch Student_Details into details;
+close Student_Details;
+end;
+/
+---------------------------------------------------------------------------------
+DECLARE
+TYPE student_details is record(Student_No student.Student_No%rowtype,Student_Name student.Student_Name%rowtype,Father_Name student.Father_Name%rowtype,Mother_Name student.Mother_Name%rowtype,DOB student.DOB%rowtype,DOJ student.DOJ%rowtype,Address student.Address%rowtype,Admission_No student.Admission_No%rowtype,created_by student.created_by%rowtype,created_date student.created_date%rowtype,last_updated_by student.last_updated_by%rowtype,last_updated_date student.last_updated_date%rowtype);
+result student_details;
+PROCEDURE STUDENT_DETAILS (Student_Id student_details) 
+IS 
+BEGIN 
+if Student_Id IS NOT NULL then
+select * into result from student where student_No=Student_Id;
+else
+select * into result from student;
+END; 
+BEGIN
+ -- Book 1 specification 
+book1.title := 'C Programming'; 
+book1.author := 'Nuha Ali '; 
+book1.subject := 'C Programming Tutorial'; 
+book1.book_id := 6495407;
+ -- Book 2 specification 
+book2.title := 'Telecom Billing'; 
+book2.author := 'Zara Ali'; 
+book2.subject := 'Telecom Billing Tutorial'; 
+book2.book_id := 6495700;
+ -- Use procedure to print book info 
+printbook(book1);
+printbook(book2); 
+END; 
+/
+-----------------------------
+create or replace procedure getStudentDetails(Student_Id varchar2)
+is
+-------------------------------------------------------------------------------------------
+create or replace procedure StudentDetails(Student_Id varchar2,result out student%rowtype)
+is
+cursor details is select * from student;
+begin
+if Student_Id IS NULL then
+	open details;
+	loop
+		fetch details into result;
+		exit when details%notfound;
+	end loop;
+else
+	open details;
+	fetch details into result;
+end if;
+end StudentDetails;
+/		
+--------------------------------------------------------------------------------------------
+create or replace procedure getStudentDetails(Student_Id varchar2)
+is
+result student%rowtype;
+begin
+StudentDetails(Student_Id,result);
+end;
+/
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
