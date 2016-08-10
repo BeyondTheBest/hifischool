@@ -1,0 +1,10 @@
+create table transport_enrollments_roaster(TR_Enroll_Roaster_Id varchar2(20) constraints tr_roaster_pk primary key,
+						Transport_Route_Id varchar2(50) references transport(Transport_Route_Id),
+						Student_No varchar2(20) references student(Student_No),
+						Enrollment_Date date,
+						Enrollment_Start_Date date,
+						Enrollment_End_Date date,
+						Created_By varchar2(50),
+						Creation_Date date,
+						Last_Updated_By varchar(50),
+						Last_Updation_Date date);

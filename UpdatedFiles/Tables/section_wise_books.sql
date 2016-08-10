@@ -1,0 +1,12 @@
+create table section_wise_books(Section_Book_Id varchar2(20) constraints section_book_pk primary key,
+				Book_set_Detail varchar2(255),
+				For_Education_Year number(10),
+				Class_Id varchar2(20) references class(Class_Id),
+				Book_Set_Approved_By varchar2(50),
+				Book_Set_Approved_Date date,
+				Set_Total_Books_Note number(3),
+				Set_Total_Price number(11,2),
+				Created_By varchar2(50),
+				Creation_Date date,
+				Last_Updated_By varchar2(50),
+				Last_updation_Date date);
