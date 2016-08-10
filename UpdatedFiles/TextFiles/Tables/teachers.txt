@@ -1,0 +1,93 @@
+create table teachers(Teacher_Id varchar2(20) constraints pk_Teacher primary key,
+			Teacher_Name varchar2(20) not null,
+			DOB date,
+			DOJ date,
+			Gender char(6) check(Gender in('M','F','m','f','male','female','MALE','FEMALE','Female','Male')),
+			Father_Name varchar2(50),
+			Mother_Name varchar2(50),
+			Spouse_Name varchar2(50),
+			Grade varchar2(20),
+			Insurance_Name varchar2(50),
+			Insurance_Premium number(11,2),
+			Insurance_Valid_Till date,
+			Insured_amount number(11,2),
+			Insurance_Number varchar2(40),
+			Total_Experience number(5),
+			Subject_Matter_Expert varchar2(30),
+			Value_Additions varchar2(50),
+			If_Refferenced_By varchar2(50),
+			Interviewed_By varchar2(50),
+			Interviewed_Date date,
+			PAN_Card_Number varchar2(50),
+			Bank_Account_Number number(30),
+			Address varchar2(80),
+			Email_Id varchar2(50),
+			Mobile number(10) check(length(Mobile)=10) not null,--no need to add country code
+			Emergency_Contact varchar2(50),
+			Emergency_Contact_Mobile number(10) check(length(Emergency_Contact_Mobile)=10) not null,
+			Previous_Organisation varchar2(50),
+			Previous_Org_Annual_Income number(11,2),
+			Created_By varchar2(50),
+			Creation_Date date,
+			Last_Updated_By varchar2(50),
+			Last_Updation_Date date);
+
+create sequence teacher_Id
+start with 100
+increment by 1;
+
+create or replace procedure in_Teacher_Details(Teacher_Name varchar2,
+DOB date,
+DOJ date,
+Gender char,
+Father_Name varchar2,
+Mother_Name varchar2,
+Spouse_Name varchar2,
+Grade varchar2,
+Insurance_Name varchar2,
+Insurance_Premium number,
+Insurance_Valid_Till date,
+Insurance_Amount number,
+Insurance_Number varchar2,
+Total_Experience number,
+Subject_Matter_Expert varchar2,
+Value_Additions varchar2,
+If_Refferenced_By varchar2,
+Interviewed_By varchar2,
+Interviewed_Date date,
+PAN_Card_Number varchar2,
+Bank_Account_Number number,
+Address varchar2,
+EMail_Id varchar2,
+Mobile number,
+Emer_Contact varchar2,
+Emer_Contact_Mobile number,
+Previous_Org varchar2,
+Previous_Org_Income number)
+is
+begin
+insert into teachers values('HIFI_Teacher'||Teacher_Id.nextval,Teacher_Name,DOB,DOJ,Gender,Father_Name,Mother_Name,Spouse_Name,Grade,Insurance_Name,Insurance_Premium,Insurance_Valid_Till,Insurance_Amount,Insurance_Number,Total_Experience,Subject_Matter_Expert,Value_Additions,If_Refferenced_By,Interviewed_By,Interviewed_Date,PAN_Card_Number,Bank_Account_Number,Address,EMail_Id,Mobile,Emer_Contact,Emer_Contact_Mobile,Previous_Org,Previous_Org_Income,user,sysdate,user,sysdate);
+/*--if (select count(1) from teachers t
+where exists(select * from teachers
+		where teacher_Name=t.teacher_Name
+                    and
+                    DOB=t.DOB
+                    and
+                    Mobile=t.Mobile))=0 then */
+commit;
+/*--else
+rollback; */
+end;
+/
+
+execute in_Teacher_Details('SaiBaba','01-jan-1985','29-may-2016','Male','Vishnu','Lakshmi','Padma','','',NULL,'',NULL,'',10,'Mathmetics','','','Chiranjeevi','25-may-2016','',32060208194,'Vizag','',9988776655,'Sathish',9900889911,'HPS,Begumpet',500000);
+
+execute in_Teacher_Details('Srinivas','05-May-1982','2-june-2016','Male','Laxman','Badramma','Mounika','','',NULL,'',NULL,'',18,'Social','','','Chiranjeevi','25-may-2016','',32060221194,'Medak','',9908897008,'SandeepGoud',8500205507,'DPS,Hyderabad',900000);
+
+execute in_Teacher_Details('Ravinder','01-june-1978','25-june-2016','Male','PochaGoud','KasturiBai','Jalaja','','',NULL,'',NULL,'',22,'Science','','','Chiranjeevi','25-may-2016','',32081208194,'Toopran','',9912345678,'venkatnarsaiah',9900882211,'Goutham Model School',1000000);
+
+execute in_Teacher_Details('Sandeep','25-sep-1990','6-may-2016','Male','Kistaiah','Aruna','','','',NULL,'',NULL,'',5,'Telugu','','','Chiranjeevi','25-may-2016','',32078908194,'Siddipet','',8500301843,'Kistaiah',9989430867,'Sri Vani High School',320000);
+
+execute in_Teacher_Details('Hareesh','07-oct-1990','2-june-2016','Male','LaxmanGoud','Padma',' ','','',NULL,'',NULL,'',Null,'English','','','Chiranjeevi','25-may-2016','',32060331194,'Hyderabad','',9908898899,'RajeshGoud',8500204567,'',NULL);
+
+execute in_Teacher_Details('Kistaiah','12-may-1975','25-june-2016','Male','Venkataiah','Narsamma','Aruna Devi','','',NULL,'',NULL,'',15,'Hindi','','','Chiranjeevi','25-may-2016','',32081298194,'warangal','',9989430867,'raju',9951833517,'ZPHS Ankshapur',1000000);

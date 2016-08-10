@@ -1,0 +1,25 @@
+create table section_wise_attendence(Sec_Att_Id varchar2(20) constraints SWA_pk primary key,
+					Attendence_Id varchar2(20) references attendence(Attendence_Id),
+					Class_Id varchar2(20) references class(Class_Id),
+					Student_No varchar2(20) references student(Student_No),
+					Day date,
+					Present varchar2(20),
+					Recorded_By varchar2(20) references staff(Staff_Id),
+					Created_By varchar2(50),
+					Creation_Date date,
+					Last_Updated_by varchar2(50),
+					Last_Updation_Date date);
+
+create sequence Sec_Att_Id
+start with 1000
+increment by 1;
+
+create or replace procedure in_section_attendence(Attendence_Id varchar2,Class_Id varchar2,Student_No varchar2,Day date,Present varchar2,Recorded_By varchar2)
+is
+begin
+insert into section_wise_attendence values('Sec_Att'||Sec_Att_Id.nextval,Attendence_Id,Class_Id,Student_No,Day,Present,Recorded_By,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+exec in_section_attendence('Attendence1000','10th_HIFI_1','16HIFI1',sysdate,'Y','HIFI_staff100');

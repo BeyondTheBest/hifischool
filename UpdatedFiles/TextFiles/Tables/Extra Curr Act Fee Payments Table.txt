@@ -1,0 +1,34 @@
+create table extra_curr_act_payments(ECAFP_Id varchar2(20) constraints ECAFP_pk primary key,
+					Term_Id varchar2(20) references terms(Term_Id),
+					Sports_Id varchar2(20) references sports_master(Sports_Id),
+					Extra_Curr_Fee_Amount number(11,2),
+					Fee_To_Be_Paid_Before varchar2(20),
+					Student_No varchar2(20) references student(Student_No),
+					Fee_Amount number(11,2),
+					Fee_Paid_Date date,
+					Fee_Penalty number(11,2),
+					Fee_Paid_Mode varchar2(20),
+					Fee_Paid_By varchar2(50),
+					Fee_Received_By varchar2(20) references staff(Staff_Id),
+					Fee_Receipt_Id varchar2(20),
+					Created_By varchar2(50),
+					Creation_Date date,
+					Last_Updated_By varchar(50),
+					Last_Updation_Date date);
+
+create sequence ECAFP_Id
+start with 1000
+increment by 1
+cache 50;
+
+
+create or replace procedure in_extra_curr_act_payments(Term_Id varchar2,Sports_Id varchar2,Extra_Curr_Fee_Amount number,Fee_To_Be_Paid_Before varchar2,Student_No varchar2,Fee_Amount number,Fee_Penalty number,Fee_Paid_Mode varchar2,Fee_Paid_By varchar2,Fee_Received_By varchar2)
+is
+begin
+insert into extra_curr_act_payments values('ECAF'||ECAFP_Id.nextval,Term_Id,Sports_Id,Extra_Curr_Fee_Amount,Fee_To_Be_Paid_Before,Student_No,Fee_Amount,sysdate,Fee_Penalty,Fee_Paid_Mode,Fee_Paid_By,Fee_Received_By,'HIFI_Fee'||fee_receipt.nextval,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+exec in_extra_curr_act_payments('Term_1','sports100',5000,'no','16HIFI1','5000',NULL,'cash','raju','HIFI_staff105');

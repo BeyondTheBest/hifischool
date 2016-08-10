@@ -1,0 +1,35 @@
+create table term_wise_fee_payments(TWFP varchar2(20) constraints TWFP_pk primary key,
+					Term_Id varchar2(20) references terms(Term_Id),
+					Fee_Id varchar2(20) references fee_master(Fee_Id),
+					Term_Fee_To_Be_Paid_Before varchar2(5) check(Term_Fee_To_Be_Paid_Before in('yes','no','YES','NO','No','Yes')),
+					Student_NO varchar2(20) references student(Student_No),
+					Fee_Amount number(11,2),
+					Fee_Paid_Date date,
+					Fee_penalty number(11,2),
+					Fee_Paid_Mode varchar2(30),
+					Fee_Paid_By varchar2(30),
+					Fee_Received_By varchar2(20) references staff(Staff_Id),
+					Fee_Receipt_Id varchar(20),
+					Created_By varchar2(30),
+					Creation_Date date,
+					Last_Updated_By varchar2(30),
+					Last_Updation_Date date);
+
+create sequence TWFP_ID
+start with 1000
+increment by 1;
+
+create sequence fee_receipt
+start with 1000
+increment by 1;
+
+create or replace procedure in_Term_Wise_Fee_Payments(Term_Id varchar2,Fee_Id varchar2,Term_Fee_To_Be_Paid_Before varchar2,Student_NO varchar2,Fee_Amount number,Fee_Paid_Date date,Fee_penalty number,Fee_Paid_Mode varchar2,Fee_Paid_By varchar2,Fee_Received_By varchar2)
+is
+begin
+insert into term_wise_fee_payments values('TWFP'||TWFP_ID.nextval,Term_Id,Fee_Id,Term_Fee_To_Be_Paid_Before,Student_NO,Fee_Amount,Fee_Paid_Date,Fee_penalty,Fee_Paid_Mode,Fee_Paid_By,Fee_Received_By,'HIFI_Fee'||fee_receipt.nextval,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+execute in_Term_wise_Fee_Payments('Term_1','fee1000','No','16HIFI1',10000,sysdate,NULL,'cash','ravi','HIFI_staff105');

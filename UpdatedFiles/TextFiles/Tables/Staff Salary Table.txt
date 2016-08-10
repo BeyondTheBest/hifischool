@@ -1,0 +1,49 @@
+create table staff_salary(Staff_Salary_Id varchar2(20) constraints staff_sal_pk primary key,
+				Staff_Id varchar2(20) references staff(Staff_Id),
+				Annual_Salary number(11,2),
+				Year varchar2(20),
+				Month varchar2(20),
+				Gross_Sal number(11,2),
+				Total_Deductions number(11,2),
+				Net_Salary number(11,2),
+				Income_Tax_Deducted number(11,2),
+				Income_Tax_Amount number(11,2),
+				Salary_Credited_To_Account varchar2(30),
+				Credited_Mode varchar2(20),
+				Credit_Initiated_By varchar2(50),
+				Credit_Initiated_Date date,
+				Additional_Comments varchar2(100),
+				Created_By varchar2(50),
+				Creation_Date date,
+				Last_Updated_By varchar2(50),
+				Last_Updation_Date date);
+
+create sequence staff_sal_Id
+start with 1000
+increment by 1;
+
+create or replace procedure in_staff_salary(Staff_Id varchar2,Annual_Salary number,Salary_Credited_To_Account varchar2,Credited_Mode varchar2,Credit_Initiated_By varchar2,Credit_Initiated_Date date,Additional_Comments varchar2)
+is
+deductions integer;
+gross_sal integer;
+net_sal number(10,2);
+incometax integer;
+begin
+gross_sal:=Annual_Salary/12;
+deductions:=0.1*gross_sal;
+net_sal:=gross_sal-deductions;
+	if net_sal<=20000 then
+		insert into staff_salary values('staff_salary'||staff_sal_Id.nextval,Staff_Id,Annual_Salary,extract(Year from sysdate),extract(Month from sysdate),gross_sal,deductions,net_sal,NULL,NULL,Salary_Credited_To_Account,Credited_Mode,Credit_Initiated_By,Credit_Initiated_Date,Additional_Comments,user,sysdate,user,sysdate);
+	elsif net_sal>20000 and net_sal<50000 then
+		incometax:=10;
+	elsif net_sal>50000 and net_sal<100000 then
+		incometax:=20;
+	else
+		incometax:=30;
+	end if;
+		insert into staff_salary values('staff_salary'||staff_sal_Id.nextval,Staff_Id,Annual_Salary,extract(Year from sysdate),extract(Month from sysdate),gross_sal,deductions,net_sal,incometax,(incometax/100)*net_sal,Salary_Credited_To_Account,Credited_Mode,Credit_Initiated_By,Credit_Initiated_Date,Additional_Comments,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+exec in_staff_salary('HIFI_staff100',500000,'32060208194','cheque','raju',sysdate,'');

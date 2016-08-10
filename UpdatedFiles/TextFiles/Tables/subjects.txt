@@ -1,0 +1,32 @@
+create table subjects(Subject_Id varchar2(20) constraints pk_subject primary key,
+			Subject_Name varchar(50) not null,
+			Subject_Max_Marks number(10) not null,
+			Created_By varchar2(50),
+			Creation_Date date,
+			Last_Updated_By varchar2(50),
+			Last_Updation_Date date);
+
+create sequence Subject_Id
+start with 01
+increment by 1;
+
+create or replace procedure in_Subjects_Details(Subject_Name varchar2,max_marks number)
+is
+begin
+insert into subjects values(substr(subject_Name,1,3)||'_'||subject_Id.nextval,Subject_Name,max_marks,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+execute in_Subjects_Details('Telugu',100);
+
+execute in_Subjects_Details('Hindi',100);
+
+execute in_Subjects_Details('English',100);
+
+execute in_Subjects_Details('Mathmetics',100);
+
+execute in_Subjects_Details('Science',100);
+
+execute in_Subjects_Details('Social',100);

@@ -1,0 +1,39 @@
+create table sports_participation(Sports_Part_Id varchar2(20) constraints SP_ID_pk primary key,
+					Sports_Id varchar2(20) references sports_master(Sports_Id),
+					CWS_Id varchar2(20) references class_wise_sports(CWS_Id),
+					Student_No varchar2(10) references student(Student_No),
+					Participation_Date date,
+					Prize_Name varchar2(50),
+					Prize_Date date,
+					Prize_Given_By varchar2(50),
+					Prize_For varchar2(50),
+					Coach_Comments varchar2(100),
+					Created_By varchar2(50),
+					Creation_Date date,
+					Last_Updated_By varchar(50),
+					Last_Updation_Date date);
+
+create sequence Sports_Part_Id
+start with 100
+increment by 1
+cache 100;
+
+
+create or replace procedure in_sports_participation(Sports_Id varchar2,
+					CWS_Id varchar2,
+					Student_No varchar2,
+					Participation_Date date,
+					Prize_Name varchar2,
+					Prize_Date date,
+					Prize_Given_By varchar2,
+					Prize_For varchar2,
+					Coach_Comments varchar2)
+is
+begin
+insert into sports_participation values('SP'||Sports_Part_Id.nextval,Sports_Id,CWS_Id,Student_No,Participation_Date,Prize_Name,Prize_Date,Prize_Given_By,Prize_For,Coach_Comments,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+exec in_Sports_participation('sports100','CWS101','16HIFI1','20-jun-2016','First Prize','15-aug-2016','Pricipal','Winner in Cricket','Congrats');

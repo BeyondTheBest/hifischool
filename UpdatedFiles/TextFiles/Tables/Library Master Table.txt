@@ -1,0 +1,28 @@
+create table library_master(Library_Id varchar2(20) constraints library_pk primary key,
+				Arranged_Year varchar2(20),
+				Rack_No varchar2(20),
+				Book_Id_If_exists varchar2(30),
+				Book_Name varchar2(50),
+				Book_Category varchar2(30),
+				Author varchar2(50),
+				Book_Version varchar2(50),
+				Useful_For_Section varchar2(20) references class(Class_Id),
+				Created_By varchar2(50),
+				Creation_Date date,
+				Last_Updated_by varchar2(50),
+				Last_Updation_Date date);
+
+create sequence Library_Id
+start with 1000
+increment by 1;
+
+
+create or replace procedure in_library_master(Arranged_Year varchar2,Rack_No varchar2,Book_Id_If_exists varchar2,Book_Name varchar2,Book_Category varchar2,Author varchar2,Book_Version varchar2,Useful_For_Section varchar2)
+is
+begin
+insert into library_master values('HIFI_Library'||Library_Id.nextval,Arranged_Year,Rack_No,Book_Id_If_exists,Book_Name,Book_Category,Author,Book_Version,Useful_For_Section,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+exec in_library_master('10th-Class','10-A','','telugu','language','','2016','');

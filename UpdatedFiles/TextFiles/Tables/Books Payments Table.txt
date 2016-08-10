@@ -1,0 +1,33 @@
+create table books_payments(Books_Payments_Id varchar2(20) constraints book_payments_pk primary key,
+				Book_Issue_To_Student varchar2(20) references book_issued_to_student(Book_Issue_To_Student),
+				Term_Id varchar2(20) references terms(Term_Id),
+				Book_Id varchar2(20) references year_wise_book_master(Book_Id),
+				Book_Fee_Amount number(11,2),
+				Fee_To_Be_Paid_Before varchar2(20),
+				Student_No varchar2(20) references student(Student_No),
+				Fee_Amount number(11,2),
+				Fee_Paid_Date date,
+				Fee_Penalty number(11,2),
+				Fee_Paid_Mode varchar2(20),
+				Fee_Paid_By varchar2(50),
+				Fee_Received_By varchar2(20) references staff(Staff_Id),
+				Fee_receipt_Id varchar2(20),
+				Created_By varchar2(50),
+				Creation_Date date,
+				Last_Updated_By varchar2(50),
+				Last_updation_Date date);
+
+create sequence book_payments_id
+start with 1000
+increment by 1;
+
+create or replace procedure in_book_payments(Book_Issue_To_Student varchar2,Term_Id varchar2,Book_Id varchar2,Book_Fee_Amount number,Fee_To_Be_Paid_Before varchar2,Student_No varchar2,Fee_Amount number,Fee_Paid_Date date,Fee_Penalty number,Fee_Paid_Mode varchar2,	Fee_Paid_By varchar2,Fee_Received_By varchar2)
+is
+begin
+insert into books_payments values('Book_Payments_'||book_payments_id.nextval,Book_Issue_To_Student,Term_Id,Book_Id,Book_Fee_Amount,Fee_To_Be_Paid_Before,Student_No,Fee_Amount,Fee_Paid_Date,Fee_Penalty,Fee_Paid_Mode,Fee_Paid_By,Fee_Received_By,'HIFI_Fee'||fee_receipt.nextval,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+exec in_book_payments('','','',NULL,'','','',NULL,'',NULL,'','');

@@ -1,0 +1,27 @@
+create table library_in_out_details(LIOD_Id varchar2(20) constraints Library_INOUT_pk primary key,
+					Library_Id varchar(20) references library_master(Library_Id),
+					Book_Issued_To_Student varchar2(20) references student(Student_No),
+					Book_Issued_By varchar2(50),
+					Book_Issud_To varchar2(50),
+					Book_Return_Due_Date date,
+					Actual_Book_Returned_Date date,
+					Book_Collected_By varchar2(20) references staff(Staff_Id),
+					Created_By varchar2(50),
+					Creation_Date date,
+					Last_Updated_by varchar2(50),
+					Last_Updation_Date date);
+
+create sequence Library_In_Out
+start with 1000
+increment by 1;
+
+create or replace procedure in_library_in_out(Library_Id varchar,Book_Issued_To_Student varchar2,Book_Issued_By varchar2,Book_Issud_To varchar2,Actual_Book_Returned_Date date,Book_Collected_By varchar2)
+is
+begin
+insert into library_in_out_details values('Library_InOut'||Library_In_Out.nextval,Library_Id,Book_Issued_To_Student,Book_Issued_By,Book_Issud_To,add_months(sysdate,1),Actual_Book_Returned_Date,Book_Collected_By,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+exec in_library_in_out('HIFI_Library1003','16HIFI1','','','','');
+

@@ -1,0 +1,25 @@
+create table transport_enrollments_roaster(TR_Enroll_Roaster_Id varchar2(20) constraints tr_roaster_pk primary key,
+						Transport_Route_Id varchar2(50) references transport(Transport_Route_Id),
+						Student_No varchar2(20) references student(Student_No),
+						Enrollment_Date date,
+						Enrollment_Start_Date date,
+						Enrollment_End_Date date,
+						Created_By varchar2(50),
+						Creation_Date date,
+						Last_Updated_By varchar(50),
+						Last_Updation_Date date);
+
+create sequence tr_roaster_Id
+start with 100
+increment by 1
+cache 50;
+
+create or replace procedure in_transport_roaster(Transport_Route_Id varchar2,Student_No varchar2,Enrollment_Date date,Enrollment_Start_Date date,Enrollment_End_Date date)
+is
+begin
+insert into transport_enrollments_roaster values('Tr_Roaster'||tr_roaster_Id.nextval,Transport_Route_Id,Student_No,Enrollment_Date,Enrollment_Start_Date,Enrollment_End_Date,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+exec in_transport_roaster('Route_100','16HIFI1',sysdate,sysdate,add_months(sysdate,6));

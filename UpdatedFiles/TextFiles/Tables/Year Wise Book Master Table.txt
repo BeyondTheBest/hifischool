@@ -1,0 +1,34 @@
+create table year_wise_book_master(Book_Id varchar2(20) constraints year_book_pk primary key,
+					Book_Name varchar2(50),
+					Year number(4) constraints year_book_check1 check(Year between 2000 and 2100),
+					Month number(2) constraints year_book_check2 check(Month between 1 and 12),
+					Day number(2) constraints year_book_check3 check(Day between 1 and 31),
+					Author varchar2(50),
+					Revision varchar2(50),
+					If_Purchased_By varchar2(50),
+					If_Purchased_Date date,
+					Added_To_Library_By varchar2(50),
+					Added_To_Library_Date date,
+					Library_Rack_no varchar2(20),
+					Library_Id varchar2(20) references library_master(Library_Id),
+					Price number(11,2),
+					Quantity number(3),
+					Created_By varchar2(50),
+					Creation_Date date,
+					Last_Updated_By varchar(50),
+					Last_Updation_Date date);
+
+create sequence book_id
+start with 1000
+increment by 1;
+
+create or replace procedure in_year_wise_book_master(Book_Name varchar2,Author varchar2,Revision varchar2,If_Purchased_By varchar2,If_Purchased_Date date,Added_To_Library_By varchar2,Added_To_Library_Date date,Library_Rack_no varchar2,Library_Id varchar2,Price number,Quantity number)
+is
+begin
+insert into year_wise_book_master values('Book-'||book_id.nextval,Book_Name,extract(year from sysdate),extract(month from sysdate),extract(day from sysdate),Author,Revision,If_Purchased_By,If_Purchased_Date,Added_To_Library_By,Added_To_Library_Date,Library_Rack_no,Library_Id,Price,Quantity,user,sysdate,user,sysdate);
+commit;
+end;
+/
+
+
+exec in_year_wise_book_master('maths','','','','','','','','HIFI_Library1003',NULL,NULL);

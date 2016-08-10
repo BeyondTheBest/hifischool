@@ -1,0 +1,21 @@
+     create table terms(Term_Id varchar2(20) constraints pk_terms primary key,
+			Term_Name varchar2(30),
+			Term_Duration number(10),
+			Term_Start_Date date,
+			Term_End_date date,
+			Created_By varchar2(50),
+			Creation_Date date,
+			Last_Updated_By varchar2(50),
+			Last_Updation_Date date);
+
+create sequence term_Id
+start with 1
+increment by 1;
+
+insert into terms values('Term_'||term_Id.nextval,'First_Term',90,'12-june-2016','12-aug-2016',user,sysdate,user,sysdate);
+
+insert into terms values('Term_'||term_Id.nextval,'Second_Term',90,'01-sep-2016','30-oct-2016',user,sysdate,user,sysdate);
+
+insert into terms values('Term_'||term_Id.nextval,'Third_Term',90,'15-nov-2016','28-feb-2017',user,sysdate,user,sysdate);
+
+insert into terms values('Term_'||term_Id.nextval,'fourth_Term',90,'15-mar-2017','01-june-2017',user,sysdate,user,sysdate);
